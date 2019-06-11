@@ -19,6 +19,7 @@ import midi_manipulation
 
 
 num = 3 #The number of songs to generate
+
 primer_song = 'Pop_Music_Midi/Every Time We Touch - Chorus.midi' #The path to the song to use to prime the network
 
 def main(saved_weights_path):
@@ -29,7 +30,8 @@ def main(saved_weights_path):
 
     saver = tf.train.Saver(tvars) #We use this saver object to restore the weights of the model
 
-    song_primer = midi_manipulation.get_song(primer_song) 
+    song_primer = midi_manipulation.get_song(primer_song)
+    print(song_primer)
 
     with tf.Session() as sess:
         init = tf.initialize_all_variables()

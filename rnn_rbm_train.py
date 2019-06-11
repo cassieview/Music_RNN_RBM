@@ -40,7 +40,7 @@ def main(num_epochs):
         saver.restore(sess, saved_weights_path) #Here we load the initial weights of the model that we created with weight_initializations.py
 
         #We run through all of the songs n_epoch times
-        print "starting"
+        print("starting")
         for epoch in range(num_epochs):
             costs = []
             start = time.time()
@@ -51,8 +51,7 @@ def main(num_epochs):
                     _, C = sess.run([updt, cost], feed_dict={x: tr_x, lr: alpha}) 
                     costs.append(C) 
             #Print the progress at epoch
-            print "epoch: {} cost: {} time: {}".format(epoch, np.mean(costs), time.time()-start)
-            print
+            print("epoch: {} cost: {} time: {}").format(epoch, np.mean(costs), time.time()-start)
             #Here we save the weights of the model every few epochs
             if (epoch + 1) % epochs_to_save == 0: 
                 saver.save(sess, "parameter_checkpoints/epoch_{}.ckpt".format(epoch))
